@@ -49,4 +49,89 @@ var main = func(addon) {
   var mySettingsRootPath = "/addons/by-id/" ~ myAddonId;
 
   print(myAddonId ~" addon initialized from path "~ root);
+
+
+  var model_name = getprop("/sim/model/name") or '';
+
+  var my_prop = nil;
+  var my_alias = nil;
+
+  for(var wingman = 0 ; wingman < 3 ; wingman += 1)
+  {
+    my_alias = props.globals.getNode("/gear/gear[0]/position-norm");
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/gear/gear[0]/position-norm").alias(my_alias);
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/gear/gear[1]/position-norm").alias(my_alias);
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/gear/gear[2]/position-norm").alias(my_alias);
+    if(model_name == 'brsq')
+    {
+      my_alias = props.globals.getNode("/sim/multiplay/generic/int[0]");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/int[0]").alias(my_alias);
+
+      my_alias = props.globals.getNode("/sim/multiplay/generic/int[1]");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/int[1]").alias(my_alias);
+
+      my_alias = props.globals.getNode("/sim/multiplay/generic/int[2]");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/int[2]").alias(my_alias);
+
+      my_alias = props.globals.getNode("/sim/model/canopy-pos-norm");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[0]").alias(my_alias);
+
+      my_alias = props.globals.getNode("/controls/lighting/formation-lights");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[2]").alias(my_alias);
+
+      my_alias = props.globals.getNode("/engines/engine[0]/reheat");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[8]").alias(my_alias);
+
+      my_alias = props.globals.getNode("/engines/engine[1]/reheat");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[9]").alias(my_alias);
+
+      my_alias = props.globals.getNode("/sim/model/livery/file");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/model/livery/file").alias(my_alias);
+
+      my_alias = props.globals.getNode("/sim/model/livery/texture");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/model/livery/texture").alias(my_alias);
+
+      my_alias = props.globals.getNode("/sim/model/livery/texture-tank");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/model/livery/texture-tank").alias(my_alias);
+
+      my_alias = props.globals.getNode("/sim/model/livery/texture-gears");
+      my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/model/livery/texture-gears").alias(my_alias);
+    }
+    else
+    {
+      setprop("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/int[0]", 31);
+      setprop("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/int[1]", 160);
+      setprop("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/int[2]", 487);
+
+    }
+
+    my_alias = props.globals.getNode("/gear/gear[0]/rollspeed-ms");
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[4]").alias(my_alias);
+
+    my_alias = props.globals.getNode("/gear/gear[1]/rollspeed-ms");
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[5]").alias(my_alias);
+
+    my_alias = props.globals.getNode("/gear/gear[2]/rollspeed-ms");
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[6]").alias(my_alias);
+
+    my_alias = props.globals.getNode("/gear/gear[0]/steering-norm");
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[7]").alias(my_alias);
+
+    my_alias = props.globals.getNode("/gear/gear[0]/wow");
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[10]").alias(my_alias);
+
+    my_alias = props.globals.getNode("/gear/gear[1]/wow");
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[11]").alias(my_alias);
+
+    my_alias = props.globals.getNode("/gear/gear[2]/wow");
+    my_prop = props.globals.getNode("/ai/models/wingman["~ wingman ~"]/sim/multiplay/generic/float[12]").alias(my_alias);
+
+   }
+
 }
+
+
+
+
+
+
