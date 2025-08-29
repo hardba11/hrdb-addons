@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                               BOURRASQUE MODEL
+#
+################################################################################
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+
+<PropertyList include="brsq-bombableinclude.xml">
+
+  <name>aircraft</name>
+  <path>bourrasque.ac</path>
+
+  <multiplay>
+    <refuel>
+      <type type="string">probe</type>
+    </refuel>
+
+    <!-- for MP : encoded and decoded : int 0|1 - init to 0 -->
+    <sim>
+      <model>
+        <ground-equipment-e    type="int">0</ground-equipment-e>  <!-- covers -->
+        <ground-equipment-g    type="int">0</ground-equipment-g>  <!-- chocks -->
+        <ground-equipment-s    type="int">0</ground-equipment-s>  <!-- scale -->
+        <ground-equipment-p    type="int">0</ground-equipment-p>  <!-- power unit -->
+        <ground-equipment-f    type="int">0</ground-equipment-f>  <!-- fuel truck -->
+        <carrier-equipment     type="int">0</carrier-equipment>   <!-- launch bar + tail hook -->
+        <wing-tanks-1250       type="int">0</wing-tanks-1250>
+        <wing-tanks-2000       type="int">0</wing-tanks-2000>
+        <center-tank-1250      type="int">0</center-tank-1250>
+        <center-tank-2000      type="int">0</center-tank-2000>
+        <center-refuel-pod     type="int">0</center-refuel-pod>
+        <wing-pylons-smoke-pod type="int">0</wing-pylons-smoke-pod>
+        <smoking               type="int">0</smoking>
+        <hydraulic        type="float">1.0</hydraulic>
+        <hydraulic-canard type="float">1.0</hydraulic-canard>
+      </model>
+    </sim>
+
+    <controls>
+      <lighting>
+        <beacon type="int">0</beacon>
+        <nav-lights type="int">0</nav-lights>
+        <pos-lights type="int">0</pos-lights>
+        <strobe type="int">0</strobe>
+        <taxi-light type="int">0</taxi-light>
+      </lighting>
+      <pax>
+        <pilot type="int">0</pilot>
+        <copilot type="int">0</copilot>
+      </pax>
+    </controls>
+    <systems>
+      <electrical>
+        <bus>
+          <avionics type="int">0</avionics>
+          <engines type="int">0</engines>
+          <commands type="int">0</commands>
+        </bus>
+      </electrical>
+      <refuel>
+        <serviceable type="int">0</serviceable>
+      </refuel>
+    </systems>
+    <engines>
+      <engine n="0">
+        <stopped type="int">0</stopped>
+      </engine>
+      <engine n="1">
+        <stopped type="int">0</stopped>
+      </engine>
+    </engines>
+  </multiplay>
+
+  <!--
+================================================================================
+                                                                    OBJECTS LIST
+================================================================================
+  -->
+
+  <animation>
+    <type>material</type>
+    <!-- ~~~~~~~~~~~~~~~~~~ fixed parts -->
+    <object-name>fuselage</object-name>
+    <object-name>accessoires_et_capteurs</object-name>
+    <object-name>pare_brise_int</object-name>
+    <object-name>pare_brise</object-name>
+    <object-name>perche_ravitaillement</object-name>
+    <object-name>cockpit-accessoires</object-name>
+    <!-- ~~~~~~~~~~~~~~~~~~ mobiles parts - gouvernes -->
+    <object-name>aileron_L</object-name>
+    <object-name>aileron_R</object-name>
+    <object-name>canard_L</object-name>
+    <object-name>canard_R</object-name>
+    <object-name>derive</object-name>
+    <object-name>elevon_L</object-name>
+    <object-name>elevon_R</object-name>
+    <object-name>slat_L</object-name>
+    <object-name>slat_R</object-name>
+    <!-- ~~~~~~~~~~~~~~~~~~ mobiles parts - trappes -->
+    <object-name>trappe_roue_train_principal_L</object-name>
+    <object-name>trappe_jambe_train_principal_L</object-name>
+    <object-name>trappe_roue_train_principal_R</object-name>
+    <object-name>trappe_jambe_train_principal_R</object-name>
+    <object-name>trappe_roue_train</object-name>
+    <object-name>trappe_jambe_train_L</object-name>
+    <object-name>trappe_jambe_train_R</object-name>
+    <!-- ~~~~~~~~~~~~~~~~~~ mobiles parts - canopy -->
+    <object-name>canopy</object-name>
+    <object-name>canopy_plexi</object-name>
+    <object-name>canopy_plexi_int</object-name>
+    <object-name>canopy-accessoires</object-name>
+    <object-name>canopy-poignees</object-name>
+    <!-- ~~~~~~~~~~~~~~~~~~ hook -->
+    <object-name>root_hook</object-name>
+    <object-name>hook</object-name>
+    <!-- ~~~~~~~~~~~~~~~~~~ ground-equipment - trappes -->
+    <object-name>trappe_apu</object-name>
+    <object-name>trappe_fuel</object-name>
+
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-glass</inherits-from>
+    <object-name>pare_brise_int</object-name>
+    <object-name>canopy_plexi_int</object-name>
+  </effect>
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/glass/glass</inherits-from>
+    <object-name>pare_brise</object-name>
+    <object-name>canopy_plexi</object-name>
+  </effect>
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/aircraft</inherits-from>
+    <object-name>fuselage</object-name>
+    <object-name>perche_ravitaillement</object-name>
+    <object-name>accessoires_et_capteurs</object-name>
+    <object-name>aileron_L</object-name>
+    <object-name>aileron_R</object-name>
+    <object-name>canard_L</object-name>
+    <object-name>canard_R</object-name>
+    <object-name>derive</object-name>
+    <object-name>elevon_L</object-name>
+    <object-name>elevon_R</object-name>
+    <object-name>slat_L</object-name>
+    <object-name>slat_R</object-name>
+    <object-name>trappe_roue_train_principal_L</object-name>
+    <object-name>trappe_jambe_train_principal_L</object-name>
+    <object-name>trappe_roue_train_principal_R</object-name>
+    <object-name>trappe_jambe_train_principal_R</object-name>
+    <object-name>trappe_roue_train</object-name>
+    <object-name>trappe_jambe_train_L</object-name>
+    <object-name>trappe_jambe_train_R</object-name>
+    <object-name>canopy</object-name>
+    <object-name>root_hook</object-name>
+    <object-name>hook</object-name>
+    <object-name>trappe_apu</object-name>
+    <object-name>trappe_fuel</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>perche_ravitaillement</object-name>
+    <object-name>accessoires_et_capteurs</object-name>
+    <object-name>aileron_L</object-name>
+    <object-name>aileron_R</object-name>
+    <object-name>canard_L</object-name>
+    <object-name>canard_R</object-name>
+    <object-name>derive</object-name>
+    <object-name>elevon_L</object-name>
+    <object-name>elevon_R</object-name>
+    <object-name>slat_L</object-name>
+    <object-name>slat_R</object-name>
+    <object-name>trappe_roue_train_principal_L</object-name>
+    <object-name>trappe_jambe_train_principal_L</object-name>
+    <object-name>trappe_roue_train_principal_R</object-name>
+    <object-name>trappe_jambe_train_principal_R</object-name>
+    <object-name>trappe_roue_train</object-name>
+    <object-name>trappe_jambe_train_L</object-name>
+    <object-name>trappe_jambe_train_R</object-name>
+    <object-name>canopy</object-name>
+    <object-name>canopy-accessoires</object-name>
+    <object-name>root_hook</object-name>
+    <object-name>hook</object-name>
+    <object-name>trappe_apu</object-name>
+    <object-name>trappe_fuel</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture_bourrasque.png</texture>
+  </animation>
+
+
+  <!--
+================================================================================
+                                                                       ANIMATION
+================================================================================
+
+________________________________________________________________________________
+                                                                          CANARD
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ group -->
+  <animation>
+    <name>block_canard</name>
+    <object-name>canard_L</object-name>
+    <object-name>canard_R</object-name>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ movement -->
+  <animation>
+    <type>rotate</type>
+    <object-name>block_canard</object-name>
+<!--
+gear=0 => -12    (slat x ((gear - 1) x 12 x hydr) + (gear x 15 x hydr))) + ((hydr - 1) x -18)=-12
+gear=1 => 15     (slat x ((gear - 1) x 12 x hydr) + (gear x 15 x hydr))) + ((hydr - 1) x -18)=15
+hydr=0 => 18     (slat x ((gear - 1) x 12 x hydr) + (gear x 15 x hydr))) + ((hydr - 1) x -18)=18
+-->
+    <expression>
+      <sum>
+        <product>
+          <property>surface-positions/slat-pos-norm</property>
+          <sum>
+            <product>
+              <value>12</value>
+              <sum>
+                <property>gear/gear[0]/position-norm</property>
+                <value>-1</value>
+              </sum>
+              <property>sim/model/hydraulic-canard</property>
+            </product>
+            <product>
+              <value>15</value>
+              <property>gear/gear[0]/position-norm</property>
+              <property>sim/model/hydraulic-canard</property>
+            </product>
+          </sum>
+        </product>
+        <product>
+          <value>-18</value>
+          <sum>
+            <property>sim/model/hydraulic-canard</property>
+            <value>-1</value>
+          </sum>
+        </product>
+      </sum>
+    </expression>
+    <center>
+      <x-m>-1.69</x-m>
+      <y-m>0</y-m>
+      <z-m>0.5</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                          DERIVE
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ movement -->
+  <animation>
+    <type>rotate</type>
+    <object-name>derive</object-name>
+    <expression>
+      <product>
+        <property>systems/electrical/bus/commands</property>
+        <property>surface-positions/rudder-pos-norm</property>
+        <value>20</value>
+      </product>
+    </expression>
+    <center>
+      <x-m>5.82</x-m>
+      <y-m>0</y-m>
+      <z-m>2.01</z-m>
+    </center>
+    <axis>
+      <x>-1.06</x>
+      <y>0</y>
+      <z>-1.72</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                 AILERONS : ROLL
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ movement LEFT -->
+  <animation>
+    <type>rotate</type>
+    <object-name>aileron_L</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor>25</factor>
+    <center>
+      <x-m>4.08</x-m>
+      <y-m>-3.73</y-m>
+      <z-m>0.08</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>2.28</y>
+      <z>0.17</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ movement RIGHT -->
+  <animation>
+    <type>rotate</type>
+    <object-name>aileron_R</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor>25</factor>
+    <center>
+      <x-m>4.08</x-m>
+      <y-m>3.73</y-m>
+      <z-m>0.08</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>2.28</y>
+      <z>-0.17</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                 ELEVONS : PITCH
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ movement LEFT -->
+  <animation>
+    <type>rotate</type>
+    <object-name>elevon_L</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor>25</factor>
+    <center>
+      <x-m>4.08</x-m>
+      <y-m>-2.01</y-m>
+      <z-m>0.24</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1.14</y>
+      <z>0.12</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ movement RIGHT -->
+  <animation>
+    <type>rotate</type>
+    <object-name>elevon_R</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor>25</factor>
+    <center>
+      <x-m>4.08</x-m>
+      <y-m>2.01</y-m>
+      <z-m>0.24</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1.14</y>
+      <z>-0.12</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                           SLATS
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ movement LEFT -->
+  <animation>
+    <type>rotate</type>
+    <object-name>slat_L</object-name>
+    <property>surface-positions/slat-pos-norm</property> <!-- 2 max -->
+    <factor>2</factor>
+    <center>
+      <x-m>2.3</x-m>
+      <y-m>-7</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>slat_L</object-name>
+    <property>surface-positions/slat-pos-norm</property> <!-- 20 max -->
+    <factor>-20</factor>
+    <center>
+      <x-m>1.95</x-m>
+      <y-m>-3.25</y-m>
+      <z-m>0.01</z-m>
+    </center>
+    <axis>
+      <x>-2.15</x>
+      <y>2.55</y>
+      <z>0.13</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ movement RIGHT -->
+  <animation>
+    <type>rotate</type>
+    <object-name>slat_R</object-name>
+    <property>surface-positions/slat-pos-norm</property> <!-- 2 max -->
+    <factor>2</factor>
+    <center>
+      <x-m>2.3</x-m>
+      <y-m>7</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>slat_R</object-name>
+    <property>surface-positions/slat-pos-norm</property> <!-- 20 max -->
+    <factor>-20</factor>
+    <center>
+      <x-m>1.95</x-m>
+      <y-m>3.25</y-m>
+      <z-m>0.01</z-m>
+    </center>
+    <axis>
+      <x>2.15</x>
+      <y>2.55</y>
+      <z>0.13</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                          CANOPY
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ group -->
+  <animation>
+    <name>block_canopy</name>
+    <object-name>canopy</object-name>
+    <object-name>canopy_plexi</object-name>
+    <object-name>canopy-accessoires</object-name>
+    <object-name>canopy-poignees</object-name>
+    <object-name>canopy_plexi_int</object-name>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ binding -->
+  <animation>
+    <type>pick</type>
+    <object-name>canopy-poignees</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <property>/controls/doors/canopy</property>
+        <command>property-cycle</command>
+        <value>0</value>
+        <value>.6</value>
+        <value>1</value>
+        <wrap>true</wrap>
+        <condition>
+          <property>sim/multiplay/generic/float[11]</property>
+        </condition>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ movements -->
+  <animation>
+    <type>translate</type>
+    <object-name>block_canopy</object-name>
+    <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>.1</ind><dep>0</dep></entry>
+      <entry><ind>.2</ind><dep>.03</dep></entry>
+      <entry><ind>.3</ind><dep>.03</dep></entry>
+      <entry><ind>1</ind><dep>.03</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>block_canopy</object-name>
+    <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
+    <interpolation>
+      <entry><ind>.3</ind><dep>0</dep></entry>
+      <entry><ind>.6</ind><dep>2.5</dep></entry>
+      <entry><ind>1</ind><dep>45</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.0765</x-m>
+      <y-m>0</y-m>
+      <z-m>1.357</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                      GEAR DOORS
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ front gear trappe roue -->
+  <animation>
+    <type>rotate</type>
+    <object-name>trappe_roue_train</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>0.2</ind><dep>-100</dep></entry>
+      <entry><ind>0.9</ind><dep>-100</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.47</x-m>
+      <y-m>0.18</y-m>
+      <z-m>-0.21</z-m>
+    </center>
+    <axis>
+      <x>-1.53</x>
+      <y>0.0</y>
+      <z>0.04</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ front gear trappes jambes -->
+  <animation>
+    <type>rotate</type>
+    <object-name>trappe_jambe_train_R</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>0.2</ind><dep>-5</dep></entry>
+      <entry><ind>0.9</ind><dep>-65</dep></entry>
+      <entry><ind>1.0</ind><dep>-65</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-2.44</x-m>
+      <y-m>0.18</y-m>
+      <z-m>-0.24</z-m>
+    </center>
+    <axis>
+      <x>-0.5</x>
+      <y>0.0</y>
+      <z>0.02</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>trappe_jambe_train_L</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>0.2</ind><dep>5</dep></entry>
+      <entry><ind>0.9</ind><dep>65</dep></entry>
+      <entry><ind>1.0</ind><dep>65</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-2.44</x-m>
+      <y-m>-0.18</y-m>
+      <z-m>-0.24</z-m>
+    </center>
+    <axis>
+      <x>-0.5</x>
+      <y>0.0</y>
+      <z>0.02</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ left gear trappe roue -->
+  <animation>
+    <type>rotate</type>
+    <object-name>trappe_roue_train_principal_L</object-name>
+    <property>gear/gear[1]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>0.2</ind><dep>110</dep></entry>
+      <entry><ind>0.9</ind><dep>110</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.71</x-m>
+      <y-m>-0.52</y-m>
+      <z-m>-0.39</z-m>
+    </center>
+    <axis>
+      <x>3.08</x>
+      <y>0.01</y>
+      <z>-0.03</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ left gear trappe jambe -->
+  <animation>
+    <type>rotate</type>
+    <object-name>trappe_jambe_train_principal_L</object-name>
+    <property>gear/gear[1]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>0.2</ind><dep>0</dep></entry>
+      <entry><ind>0.9</ind><dep>90</dep></entry>
+      <entry><ind>1.0</ind><dep>90</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>2.00</x-m>
+      <y-m>-0.85</y-m>
+      <z-m>-0.28</z-m>
+    </center>
+    <axis>
+      <x>0.01</x>
+      <y>-0.36</y>
+      <z>0.14</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ right gear trappe roue -->
+  <animation>
+    <type>rotate</type>
+    <object-name>trappe_roue_train_principal_R</object-name>
+    <property>gear/gear[2]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>0.2</ind><dep>-110</dep></entry>
+      <entry><ind>0.9</ind><dep>-110</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.71</x-m>
+      <y-m>0.52</y-m>
+      <z-m>-0.39</z-m>
+    </center>
+    <axis>
+      <x>3.08</x>
+      <y>-0.01</y>
+      <z>0.03</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ right gear trappes jambes -->
+  <animation>
+    <type>rotate</type>
+    <object-name>trappe_jambe_train_principal_R</object-name>
+    <property>gear/gear[2]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>0.2</ind><dep>0</dep></entry>
+      <entry><ind>0.9</ind><dep>-90</dep></entry>
+      <entry><ind>1.0</ind><dep>-90</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>2.00</x-m>
+      <y-m>0.85</y-m>
+      <z-m>-0.28</z-m>
+    </center>
+    <axis>
+      <x>0.01</x>
+      <y>0.36</y>
+      <z>0.14</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                 REFUELING PROBE
+  -->
+  <animation>
+    <type>select</type>
+    <object-name>perche_ravitaillement</object-name>
+    <condition>
+      <property>systems/refuel/serviceable</property>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                            HOOK
+  -->
+
+  <animation>
+    <type>select</type>
+    <object-name>root_hook</object-name>
+    <object-name>hook</object-name>
+    <condition>
+      <property>sim/model/carrier-equipment</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>hook</object-name>
+    <property>gear/tailhook/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>0.2</ind><dep>70</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>3.475</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.416</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                GROUND EQUIPMENT
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ external-power-unit -->
+  <animation>
+    <type>select</type>
+    <object-name>trappe_apu</object-name>
+    <condition>
+      <property>sim/model/ground-equipment-p</property>
+      <less-than>
+        <property>velocities/groundspeed-kt</property>
+        <value>2</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ fuel-truck -->
+  <animation>
+    <type>select</type>
+    <object-name>trappe_fuel</object-name>
+    <condition>
+      <property>sim/model/ground-equipment-f</property>
+      <less-than>
+        <property>velocities/groundspeed-kt</property>
+        <value>2</value>
+      </less-than>
+    </condition>
+  </animation>
+
+
+</PropertyList>
+

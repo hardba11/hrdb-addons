@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <scenario>
+    <name>EGOD-Heli-Race</name>
+    <description>
+       FGUK Heli Race 
+    </description>
+    <nasal>
+      <load><![CDATA[
+props.globals.initNode("/mach-loop-timer/starttime", 0, "DOUBLE");
+
+props.globals.initNode("/mach-loop-timer/lineup-green1", 0.0, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green2", 0.2, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green3", 0.4, "DOUBLE");
+
+var yellowGuide = func {
+    interpolate("/mach-loop-timer/lineup-green1", 0.8, 0.6);
+    settimer(func {
+        interpolate("/mach-loop-timer/lineup-green1", 0, 0.6);
+        interpolate("/mach-loop-timer/lineup-green2", 0.8, 0.6);
+        }
+    , 0.6);
+    settimer(func {
+        interpolate("/mach-loop-timer/lineup-green2", 0.2, 0.6);
+        interpolate("/mach-loop-timer/lineup-green3", 0.8, 0.6);
+        }
+    , 1.2);
+    settimer(func {
+        interpolate("/mach-loop-timer/lineup-green3", 0.4, 0.6);
+        }
+    , 1.8);
+}
+
+var loop = maketimer(0.1, 
+func {
+    if(loop == nil) {
+        return;
+    }
+    yellowGuide();
+    loop.restart(4.4);
+});
+loop.singleShot = 1;
+loop.start();
+
+]]>
+      </load>
+      <unload>
+loop.stop();
+loop = nil;
+      </unload>
+    </nasal>
+    <entry>
+      <name>Start-Marker</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/startmarker.xml</model>
+      <latitude type="double">52.80920644</latitude>
+      <longitude type="double">-4.119298445</longitude>
+      <altitude type="double">111</altitude>
+      <heading type="double">76</heading>
+    </entry>
+    <entry>
+      <callsign>Start</callsign>
+      <name>Start</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker-inactive.xml</model>
+      <latitude type="double">52.80920644</latitude>
+      <longitude type="double">-4.119298445</longitude>
+      <altitude type="double">111</altitude>
+      <heading type="double">76</heading>
+    </entry>
+    <entry>
+      <name>1</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.8074764</latitude>
+      <longitude type="double">-4.119988148</longitude>
+      <altitude type="double">90.1</altitude>
+      <heading type="double">140</heading>
+    </entry>
+    <entry>
+      <name>2</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.80659392</latitude>
+      <longitude type="double">-4.124084959</longitude>
+      <altitude type="double">98.9</altitude>
+      <heading type="double">157.9</heading>
+    </entry>
+    <entry>
+      <name>3</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.80692972</latitude>
+      <longitude type="double">-4.127088623</longitude>
+      <altitude type="double">103.8</altitude>
+      <heading type="double">8</heading>
+    </entry>
+    <entry>
+      <name>4</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.80807439</latitude>
+      <longitude type="double">-4.1298933</longitude>
+      <altitude type="double">104.4</altitude>
+      <heading type="double">60</heading>
+    </entry>
+    <entry>
+      <name>5</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.81110927</latitude>
+      <longitude type="double">-4.131043751</longitude>
+      <altitude type="double">99.8</altitude>
+      <heading type="double">79.3</heading>
+    </entry>
+    <entry>
+      <name>6</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.81471236</latitude>
+      <longitude type="double">-4.132266244</longitude>
+      <altitude type="double">93.2</altitude>
+      <heading type="double">80</heading>
+    </entry>
+    <entry>
+      <name>7</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.81656075</latitude>
+      <longitude type="double">-4.131597074</longitude>
+      <altitude type="double">90</altitude>
+      <heading type="double">128</heading>
+    </entry>
+    <entry>
+      <name>8</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.81778921</latitude>
+      <longitude type="double">-4.128472653</longitude>
+      <altitude type="double">87.9</altitude>
+      <heading type="double">148</heading>
+    </entry>
+    <entry>
+      <name>9</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.81863778</latitude>
+      <longitude type="double">-4.125678641</longitude>
+      <altitude type="double">88.5</altitude>
+      <heading type="double">0</heading>
+    </entry>
+    <entry>
+      <name>10</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.8181527</latitude>
+      <longitude type="double">-4.12198957</longitude>
+      <altitude type="double">87.6</altitude>
+      <heading type="double">20</heading>
+    </entry>
+    <entry>
+      <name>11</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.81756525</latitude>
+      <longitude type="double">-4.120133615</longitude>
+      <altitude type="double">87.9</altitude>
+      <heading type="double">16</heading>
+    </entry>
+    <entry>
+      <name>12</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker.xml</model>
+      <latitude type="double">52.81748982</latitude>
+      <longitude type="double">-4.117990333</longitude>
+      <altitude type="double">87.2</altitude>
+      <heading type="double">20</heading>
+    </entry>
+    <entry>
+      <callsign>Finish</callsign>
+      <name>Finish</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/targetmarker-inactive.xml</model>
+      <latitude type="double">52.81662515</latitude>
+      <longitude type="double">-4.11538489</longitude>
+      <altitude type="double">108.3</altitude>
+      <heading type="double">20</heading>
+    </entry>
+    <entry>
+      <name>Finish-Marker</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/finishmarker.xml</model>
+      <latitude type="double">52.81662515</latitude>
+      <longitude type="double">-4.11538489</longitude>
+      <altitude type="double">108.3</altitude>
+      <heading type="double">200</heading>
+    </entry>
+    <entry>
+      <name>Exit02</name>
+      <model type="string">EGOD-Timed-Loops/Heli-Race/lineupmarker.xml</model>
+      <latitude type="double">52.81187409</latitude>
+      <longitude type="double">-4.120143682</longitude>
+      <altitude type="double">89.39</altitude>
+      <heading type="double">256.76</heading>
+    </entry>
+  </scenario>
+</PropertyList>

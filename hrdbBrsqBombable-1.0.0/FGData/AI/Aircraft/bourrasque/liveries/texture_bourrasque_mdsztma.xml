@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <!-- Motif Disruptif Simple Zone Temperee Moyenne Altitude -->
+        <name type="string">[1-tactic] mds-zt-ma</name>
+        <texture>liveries/texture_bourrasque_mdsztma.png</texture>
+        <texture-tank>texture_tanks_mdsztma.png</texture-tank>
+        <texture-gears>texture_gears.png</texture-gears>
+        <texture-pilot>pilot.png</texture-pilot>
+        <texture-copilot>copilot.png</texture-copilot>
+
+      </livery>
+    </model>
+  </sim>
+
+</PropertyList>

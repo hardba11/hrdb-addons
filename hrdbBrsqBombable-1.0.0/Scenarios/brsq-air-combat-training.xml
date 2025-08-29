@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <scenario>
+    <name>brsq air-combat training (KSFO)</name>
+    <description>brsq Training Scenario at KSFO</description>
+
+    <entry>
+      <type>aircraft</type>
+      <callsign>Raffin</callsign>
+      <name>Brsq Leader</name>
+      <model type="string">Aircraft/bourrasque/brsq.xml</model>
+      <latitude type="double">37.608720</latitude>
+      <longitude type="double">-122.3076</longitude>
+      <altitude type="double">309</altitude>
+      <speed>280.0</speed>
+      <heading type="double">192</heading>
+    </entry>
+
+    <entry>
+      <type>aircraft</type>
+      <callsign>Racco</callsign>
+      <name>Brsq Wingman</name>
+      <model type="string">Aircraft/bourrasque/brsq.xml</model>
+      <latitude type="double">37.608200</latitude>
+      <longitude type="double">-122.2988</longitude>
+      <altitude type="double">309</altitude>
+      <speed>270.0</speed>
+      <heading type="double">192</heading>
+    </entry>
+
+  </scenario>
+</PropertyList>
+

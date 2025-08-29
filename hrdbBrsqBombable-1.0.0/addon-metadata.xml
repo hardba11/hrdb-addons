@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+  <meta>
+    <file-type type="string">FlightGear add-on metadata</file-type>
+    <format-version type="int">1</format-version>
+  </meta>
+
+  <addon>
+    <identifier type="string">org.flightgear.addons.hrdb.BrsqBombable</identifier>
+    <name type="string">hrdbBrsqBombable</name>
+    <version type="string">1.0.0</version>
+
+    <authors>
+      <author>
+        <name type="string">hardball SLK</name>
+        <email type="string"></email>
+        <url type="string"></url>
+      </author>
+      <author>
+        <name type="string">Aether</name>
+        <email type="string"></email>
+        <url type="string"></url>
+      </author>
+    </authors>
+
+    <maintainers>
+      <maintainer>
+        <name type="string">hardball SLK</name>
+        <url type="string"></url>
+      </maintainer>
+    </maintainers>
+
+    <short-description type="string">
+      This add-on contains brsq bombable capability and scenario.
+    </short-description>
+
+    <long-description type="string">
+      This add-on contains brsq bombable capability and scenario.
+    </long-description>
+
+    <license>
+      <designation type="string">
+        GNU GPL version 2 or later
+      </designation>
+
+      <file type="string">
+        <!-- Use a relative, slash-separated path to a file under the add-on
+             base directory that contains the add-on license text. -->
+      </file>
+
+      <url type="string">
+        https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+      </url>
+    </license>
+
+    <min-FG-version    type="string">2018.3.0</min-FG-version>
+    <max-FG-version    type="string">none</max-FG-version>
+
+    <urls>
+      <home-page type="string"></home-page>
+      <download type="string"></download>
+      <support type="string"></support>
+      <code-repository type="string"></code-repository>
+    </urls>
+
+    <tags>
+      <tag type="string">bombable</tag>
+    </tags>
+
+    <localized>
+      <fr>
+        <name type="string">hrdbBrsqBombable</name>
+        <short-description type="string">
+          This add-on contains brsq bombable capability and scenario.
+        </short-description>
+
+        <long-description type="string">
+          This add-on contains brsq bombable capability and scenario.
+        </long-description>
+      </fr>
+    </localized>
+  </addon>
+</PropertyList>
+
+
+
+
+

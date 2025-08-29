@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <scenario>
+  <name>EGOD-Moli-Loop</name>
+  <description>
+     FGUK Moli's Loop 
+  </description>
+  <nasal>
+    <load><![CDATA[
+props.globals.initNode("/mach-loop-timer/starttime", 0, "DOUBLE");
+
+props.globals.initNode("/mach-loop-timer/lineup-green1", 0.0, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green2", 0.2, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green3", 0.4, "DOUBLE");
+
+var yellowGuide = func {
+	interpolate("/mach-loop-timer/lineup-green1", 0.8, 0.6);
+	settimer(func {
+		interpolate("/mach-loop-timer/lineup-green1", 0, 0.6);
+		interpolate("/mach-loop-timer/lineup-green2", 0.8, 0.6);
+		}
+	, 0.6);
+	settimer(func {
+		interpolate("/mach-loop-timer/lineup-green2", 0.2, 0.6);
+		interpolate("/mach-loop-timer/lineup-green3", 0.8, 0.6);
+		}
+	, 1.2);
+	settimer(func {
+		interpolate("/mach-loop-timer/lineup-green3", 0.4, 0.6);
+		}
+	, 1.8);
+}
+
+var loop = maketimer(0.1, 
+func {
+	if(loop == nil) {
+		return;
+	}
+	yellowGuide();
+	loop.restart(4.4);
+});
+loop.singleShot = 1;
+loop.start();
+
+]]>
+    </load>
+    <unload>
+loop.stop();
+loop = nil;
+    </unload>
+  </nasal>
+    <entry>
+	<name>Start-Marker</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/startmarker.xml</model>
+	    <latitude type="double">52.97431984</latitude>
+	    <longitude type="double">-4.095745249</longitude>
+	  <altitude type="double">288</altitude>
+	  <heading type="double">92</heading>
+  </entry>
+  <entry>
+    <callsign>Start</callsign>
+	<name>Start</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker-inactive.xml</model>
+	    <latitude type="double">52.97431984</latitude>
+	    <longitude type="double">-4.095745249</longitude>
+	  <altitude type="double">288</altitude>
+	  <heading type="double">92</heading>
+  </entry>
+  <entry>
+	<name>1</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">52.99718504</latitude>
+	    <longitude type="double">-4.094673703</longitude>
+	  <altitude type="double">395</altitude>
+	  <heading type="double">64</heading>
+  </entry>
+  <entry>
+	<name>2</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.01609446</latitude>
+	    <longitude type="double">-4.114025405</longitude>
+	  <altitude type="double">465</altitude>
+	  <heading type="double">60</heading>
+  </entry>
+  <entry>
+	<name>3</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.02951193</latitude>
+	    <longitude type="double">-4.122487393</longitude>
+	  <altitude type="double">746</altitude>
+	  <heading type="double">76</heading>
+  </entry>
+  <entry>
+	<name>4</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.04535926</latitude>
+	    <longitude type="double">-4.129031319</longitude>
+	  <altitude type="double">801</altitude>
+	  <heading type="double">74</heading>
+  </entry>
+  <entry>
+	<name>5</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.06168658</latitude>
+	    <longitude type="double">-4.13636687</longitude>
+	  <altitude type="double">755</altitude>
+	  <heading type="double">60</heading>
+  </entry>
+  <entry>
+	<name>6</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.07834147</latitude>
+	    <longitude type="double">-4.161183246</longitude>
+	  <altitude type="double">664</altitude>
+	  <heading type="double">48</heading>
+  </entry>
+  <entry>
+	<name>7</name>
+	  <model type="string">EGOD-Timed-Loops/Long-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.1000334</latitude>
+	    <longitude type="double">-4.195366778</longitude>
+	  <altitude type="double">642</altitude>
+	  <heading type="double">48</heading>
+  </entry>
+  <entry>
+	<name>8</name>
+	  <model type="string">EGOD-Timed-Loops/Long-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.1190088</latitude>
+	    <longitude type="double">-4.223350331</longitude>
+	  <altitude type="double">657</altitude>
+	  <heading type="double">52</heading>
+  </entry>
+  <entry>
+	<name>9</name>
+	  <model type="string">EGOD-Timed-Loops/Long-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.13534776</latitude>
+	    <longitude type="double">-4.232551228</longitude>
+	  <altitude type="double">640</altitude>
+	  <heading type="double">84</heading>
+  </entry>
+  <entry>
+	<name>10</name>
+	  <model type="string">EGOD-Timed-Loops/Long-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.14788073</latitude>
+	    <longitude type="double">-4.224631057</longitude>
+	  <altitude type="double">625</altitude>
+	  <heading type="double">128</heading>
+  </entry>
+  <entry>
+	<name>11</name>
+	  <model type="string">EGOD-Timed-Loops/Long-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.15467442</latitude>
+	    <longitude type="double">-4.203159117</longitude>
+	  <altitude type="double">648</altitude>
+	  <heading type="double">180</heading>
+  </entry>
+  <entry>
+	<name>12</name>
+	  <model type="string">EGOD-Timed-Loops/Long-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.15263974</latitude>
+	    <longitude type="double">-4.184831764</longitude>
+	  <altitude type="double">633</altitude>
+	  <heading type="double">28</heading>
+  </entry>
+  <entry>
+	<name>13</name>
+	  <model type="string">EGOD-Timed-Loops/Long-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.13916016</latitude>
+	    <longitude type="double">-4.156376443</longitude>
+	  <altitude type="double">641</altitude>
+	  <heading type="double">40</heading>
+  </entry>
+  <entry>
+	<name>14</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.11856661</latitude>
+	    <longitude type="double">-4.115664916</longitude>
+	  <altitude type="double">542</altitude>
+	  <heading type="double">40</heading>
+  </entry>
+  <entry>
+	<name>15</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.09372774</latitude>
+	    <longitude type="double">-4.063257457</longitude>
+	  <altitude type="double">717</altitude>
+	  <heading type="double">32</heading>
+  </entry>
+  <entry>
+	<name>16</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.08412494</latitude>
+	    <longitude type="double">-4.035176894</longitude>
+	  <altitude type="double">1166</altitude>
+	  <heading type="double">24</heading>
+  </entry>
+  <entry>
+	<name>17</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.08024025</latitude>
+	    <longitude type="double">-4.021102491</longitude>
+	  <altitude type="double">1412</altitude>
+	  <heading type="double">44</heading>
+  </entry>
+  <entry>
+	<name>18</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.07315617</latitude>
+	    <longitude type="double">-4.011641385</longitude>
+	  <altitude type="double">1189</altitude>
+	  <heading type="double">80</heading>
+  </entry>
+  <entry>
+	<name>19</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.06204706</latitude>
+	    <longitude type="double">-4.011039289</longitude>
+	  <altitude type="double">736</altitude>
+	  <heading type="double">116</heading>
+  </entry>
+  <entry>
+	<name>20</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.0510085</latitude>
+	    <longitude type="double">-4.017542145</longitude>
+	  <altitude type="double">525</altitude>
+	  <heading type="double">122</heading>
+  </entry>
+  <entry>
+	<name>21</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.03532936</latitude>
+	    <longitude type="double">-4.027109748</longitude>
+	  <altitude type="double">849</altitude>
+	  <heading type="double">108</heading>
+  </entry>
+  <entry>
+	<name>22</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">53.01245791</latitude>
+	    <longitude type="double">-4.042558018</longitude>
+	  <altitude type="double">728</altitude>
+	  <heading type="double">136</heading>
+  </entry>
+  <entry>
+	<name>23</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker.xml</model>
+	    <latitude type="double">52.99975575</latitude>
+	    <longitude type="double">-4.058743468</longitude>
+	  <altitude type="double">514</altitude>
+	  <heading type="double">120</heading>
+  </entry>
+  <entry>
+    <callsign>Finish</callsign>
+	<name>Finish</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/targetmarker-inactive.xml</model>
+	    <latitude type="double">52.98088425</latitude>
+	    <longitude type="double">-4.071697961</longitude>
+	  <altitude type="double">431</altitude>
+	  <heading type="double">100</heading>
+  </entry>
+  <entry>
+	<name>Finish-Marker</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/finishmarker.xml</model>
+	    <latitude type="double">52.98088425</latitude>
+	    <longitude type="double">-4.071697961</longitude>
+	  <altitude type="double">431</altitude>
+	  <heading type="double">100</heading>
+  </entry>
+  <entry>
+	<name>Line01</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/lineupmarker.xml</model>
+	    <latitude type="double">52.92941173</latitude>
+	    <longitude type="double">-4.109441285</longitude>
+	  <altitude type="double">758</altitude>
+	  <heading type="double">100</heading>
+  </entry>
+  <entry>
+	<name>Line02</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/lineupmarker.xml</model>
+	    <latitude type="double">52.95207967</latitude>
+	    <longitude type="double">-4.102518144</longitude>
+	  <altitude type="double">546</altitude>
+	  <heading type="double">98</heading>
+  </entry>
+  <entry>
+	<name>Exit01</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/lineupmarker.xml</model>
+	    <latitude type="double">52.96685823</latitude>
+	    <longitude type="double">-4.075404382</longitude>
+	  <altitude type="double">464</altitude>
+	  <heading type="double">278</heading>
+  </entry>
+  <entry>
+	<name>Exit02</name>
+	  <model type="string">EGOD-Timed-Loops/Moli-Loop/lineupmarker.xml</model>
+	    <latitude type="double">52.93864433</latitude>
+	    <longitude type="double">-4.082278144</longitude>
+	  <altitude type="double">487</altitude>
+	  <heading type="double">278</heading>
+  </entry>
+ </scenario>
+</PropertyList>
