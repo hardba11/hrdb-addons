@@ -1,3 +1,7 @@
+HRDB'S BRSQ BOMBABLE ADD-ON
+================================================================================
+
+
 Description
 -----------
 
@@ -17,7 +21,7 @@ Use
 
 1. you will need to takeoff from KSFO
 2. launch flightgear with additionnal parameters : `--addon=/home/nico/FG/addons/Bombable-5.0 --addon=/home/nico/FG/hrdb-addons/hrdbBrsqBombable-1.0.0`
-3. choose AI scenario **brsq-air-comabat-training**
+3. choose AI scenario **brsq-air-combat-training**
 4. hit `e` key to shoot guns
 5. use menu **Bombable**
 
