@@ -14,12 +14,14 @@ Available add-ons :
 - [hrdbTankerMarine](hrdbTankerMarine-1.0.0/README.md)
 - [hrdbWingmenBrsq](hrdbWingmenBrsq-1.0.0/README.md)
 - [hrdbWingmenUav](hrdbWingmenUav-1.0.0/README.md)
+- [hrdbAdjustViewPosition](hrdbAdjustViewPosition-1.0.0/README.md)
+- [hrdbControlSynapse](hrdbControlSynapse-1.0.0/README.md)
 
 
 Installation
 ------------
 
-Download the zip and extract **or** git clone in the directory of tour choice (`/home/nico/FG/hrdb-addons/` for example)
+Download the zip and extract **or** git clone in the directory of your choice (`/home/nico/FG/hrdb-addons/` for example)
 
 
 Use

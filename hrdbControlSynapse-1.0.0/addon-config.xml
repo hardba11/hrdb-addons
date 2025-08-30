@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+This file is part of FlightGear.
+
+FlightGear is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+FlightGear is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with FlightGear.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+  <addons>
+    <by-id>
+      <org.flightgear.addons.hrdb.ControlSynapse>
+        <addon-devel>
+          <foo type="int">1</foo>
+          <bar type="bool">false</bar>
+          <my-prop>sample</my-prop>
+        </addon-devel>
+      </org.flightgear.addons.hrdb.ControlSynapse>
+    </by-id>
+  </addons>
+
+  <sim>
+    <multiplay>
+      <generic>
+        <int                  n="14" type="int">12500</int> <!-- loyal wingman : alt -->
+        <int                  n="15" type="int">220</int>   <!-- loyal wingman : speed -->
+        <string               n="1"  type="string"></string> <!-- loyal wingman : callsign to follow -->
+        <string               n="2"  type="string"></string> <!-- loyal wingman : fix -->
+      </generic>
+    </multiplay>
+    <menubar>
+      <default>
+        <menu n="201">
+          <label>HrdbAddOns</label>
+          <item n="1">
+            <label>Loyal wingman ...</label>
+            <name>synapse-autopilot</name>
+            <binding>
+              <command>dialog-show</command>
+              <dialog-name>synapse-autopilot</dialog-name>
+            </binding>
+          </item>
+        </menu>
+      </default>
+    </menubar>
+  </sim>
+
+</PropertyList>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+This file is part of FlightGear.
+
+FlightGear is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+FlightGear is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with FlightGear.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<PropertyList>
+  <addons>
+    <by-id>
+      <org.flightgear.addons.hrdb.AdjustViewPosition>
+        <addon-devel>
+          <foo type="int">1</foo>
+          <bar type="bool">false</bar>
+          <my-prop>sample</my-prop>
+        </addon-devel>
+      </org.flightgear.addons.hrdb.AdjustViewPosition>
+    </by-id>
+  </addons>
+
+  <sim>
+    <menubar>
+      <default>
+        <menu n="201">
+          <label>HrdbAddOns</label>
+          <item n="2">
+            <label>Adjust View Position</label>
+            <name>adjust-view-position</name>
+            <binding>
+              <command>dialog-show</command>
+              <dialog-name>adjust-view-position</dialog-name>
+            </binding>
+          </item>
+        </menu>
+      </default>
+    </menubar>
+  </sim>
+
+</PropertyList>

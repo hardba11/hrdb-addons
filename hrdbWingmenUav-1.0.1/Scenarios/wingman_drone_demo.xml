@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+  <scenario>
+    <name>hrdb - Synapse Loyal Wingmen</name>
+    <description>
+      2 loyal wingmen - non-tactical
+      This scenario formates 2 drones Synapse to the parent .ac at the position
+      designated by the x,y,z offsets.
+    </description>
+
+    <entry n="0">
+      <name>Bravo-Lima</name>
+      <type>wingman</type>
+      <model>AI/Aircraft/brsq-drone/synapse.ac</model>
+      <x-offset>50</x-offset>
+      <y-offset>50</y-offset>
+      <z-offset>10</z-offset>
+      <formate>true</formate>
+      <max-speed-kts>650</max-speed-kts>
+      <coefficients>
+        <heading>0.0</heading>
+        <pitch>0.0</pitch>
+        <bank>0.0</bank>
+        <speed>1.4</speed>
+      </coefficients>
+    </entry>
+
+    <entry n="1">
+      <name>Bravo-Kilo</name>
+      <type>wingman</type>
+      <model>AI/Aircraft/brsq-drone/synapse.ac</model>
+      <x-offset>50</x-offset>
+      <y-offset>50</y-offset>
+      <z-offset>10</z-offset>
+      <formate>true</formate>
+      <max-speed-kts>650</max-speed-kts>
+      <coefficients>
+        <heading>0.0</heading>
+        <pitch>0.0</pitch>
+        <bank>0.0</bank>
+        <speed>1.4</speed>
+      </coefficients>
+      <parent>Bravo-Lima</parent>
+    </entry>
+
+  </scenario>
+
+</PropertyList>
