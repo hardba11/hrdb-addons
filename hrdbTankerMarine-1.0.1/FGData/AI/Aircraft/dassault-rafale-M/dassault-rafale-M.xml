@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PropertyList>
-
   <model>
     <path>AI/Aircraft/dassault-rafale-M/model/rafale-tanker.xml</path>
     <offsets>
@@ -11,6 +10,17 @@
       <pitch-deg>0</pitch-deg>
     </offsets>
   </model>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>left light top</object-name>
+    <object-name>left light bottom</object-name>
+    <object-name>right light top</object-name>
+    <object-name>right light bottom</object-name>
+    <object-name>tail light</object-name>
+    <object-name>strobe light</object-name>
+    <object-name>beacon light</object-name>
+  </animation>
 
   <model>
     <name>contrail</name>
@@ -67,6 +77,25 @@
       <x-m type="float">7.12</x-m>
       <y-m type="float">0</y-m>
       <z-m type="float">3.15</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>strobe light</name>
+    <path>AI/Aircraft/dassault-rafale-M/effects/light_strobe.xml</path>
+    <offsets>
+      <x-m type="float">1.15</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">1.05</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>beacon light</name>
+    <path>AI/Aircraft/dassault-rafale-M/effects/light_beacon.xml</path>
+    <offsets>
+      <x-m type="float">-1.08</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">-.38</z-m>
     </offsets>
   </model>
 

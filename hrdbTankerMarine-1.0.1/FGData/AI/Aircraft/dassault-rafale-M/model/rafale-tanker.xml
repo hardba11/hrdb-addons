@@ -20,13 +20,6 @@
     <object-name>tanks</object-name>
     <object-name>tuyeres</object-name>
     <object-name>light_form</object-name>
-<!--
-    <object-name>light_anticoll</object-name>
-    <object-name>light_nav_green</object-name>
-    <object-name>light_nav_red</object-name>
-    <object-name>light_pos</object-name>
-    <object-name>light_strobe</object-name>
--->
   </animation>
 
   <effect>
@@ -40,7 +33,7 @@
     <object-name>light_form</object-name>
     <emission>
       <red>0</red>
-      <green>1</green>
+      <green>.8</green>
       <blue>0</blue>
     </emission>
   </animation>

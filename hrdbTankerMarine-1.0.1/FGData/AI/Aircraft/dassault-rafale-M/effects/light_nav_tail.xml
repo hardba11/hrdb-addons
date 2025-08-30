@@ -5,7 +5,7 @@
   <nopreview />
 
   <effect>
-    <inherits-from>procedural-light-nav-tail</inherits-from>
+    <inherits-from>AI/Aircraft/dassault-rafale-M/effects/procedural-light-nav-tail</inherits-from>
     <object-name>als_light</object-name>
   </effect>
 
