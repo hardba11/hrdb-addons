@@ -8,14 +8,14 @@ This repository contains flightgear's add-ons.
 
 Available add-ons :
 
-- [hrdbBrsqBombable](hrdbBrsqBombable-1.0.0/README.md)
-- [hrdbFgUkTimedLoop](hrdbFgUkTimedLoop-1.0.0/README.md)
-- [hrdbTimedLoop](hrdbTimedLoop-1.0.0/README.md)
-- [hrdbTankerMarine](hrdbTankerMarine-1.0.0/README.md)
-- [hrdbWingmenBrsq](hrdbWingmenBrsq-1.0.0/README.md)
-- [hrdbWingmenUav](hrdbWingmenUav-1.0.0/README.md)
+- [hrdbBrsqBombable](hrdbBrsqBombable-1.0.1/README.md)
+- [hrdbFgUkTimedLoop](hrdbFgUkTimedLoop-1.0.1/README.md)
+- [hrdbTimedLoop](hrdbTimedLoop-1.0.1/README.md)
+- [hrdbTankerMarine](hrdbTankerMarine-1.0.1/README.md)
+- [hrdbWingmenBrsq](hrdbWingmenBrsq-1.0.1/README.md)
+- [hrdbWingmenUav](hrdbWingmenUav-1.0.1/README.md)
 - [hrdbAdjustViewPosition](hrdbAdjustViewPosition-1.0.0/README.md)
-- [hrdbControlSynapse](hrdbControlSynapse-1.0.0/README.md)
+- [hrdbControlSynapse](hrdbControlSynapse-1.0.1/README.md)
 
 
 Installation
