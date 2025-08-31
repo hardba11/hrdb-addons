@@ -44,10 +44,10 @@ along with FlightGear.  If not, see <http://www.gnu.org/licenses/>.
           <label>HrdbAddOns</label>
           <item n="1">
             <label>Loyal wingman ...</label>
-            <name>synapse-autopilot</name>
+            <name>synapse-control</name>
             <binding>
               <command>dialog-show</command>
-              <dialog-name>synapse-autopilot</dialog-name>
+              <dialog-name>synapse-control</dialog-name>
             </binding>
           </item>
         </menu>

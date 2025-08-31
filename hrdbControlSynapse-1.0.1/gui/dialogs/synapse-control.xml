@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
 
-  <name>synapse-autopilot</name>
+  <name>synapse-control</name>
   <layout>vbox</layout>
 
 	<group>

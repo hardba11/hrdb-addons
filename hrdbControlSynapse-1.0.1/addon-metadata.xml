@@ -14,7 +14,7 @@
     </license>
 
     <identifier type="string">org.flightgear.addons.hrdb.ControlSynapse</identifier>
-    <version type="string">1.0.0</version>
+    <version type="string">1.0.1</version>
     <name type="string">hrdbControlSynapse</name>
     <short-description type="string">
       This add-on controls the UAV synapse thanks to a gui.
